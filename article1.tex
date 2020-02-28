@@ -1,0 +1,109 @@
+%%%%%%%%%%%%%%%%%%%%% Article Template %%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,a4paper,leqno]{article}
+\usepackage[width=15.00cm, height=23.00cm]{geometry}
+
+\usepackage{palatino} % For palatino style, may be used/removed. 
+\usepackage{amsmath,amsfonts,amssymb,amsxtra,color,calligra,mathrsfs,comment,url,amsthm}
+%\let\circledS\undefined % here - PS
+%\usepackage[bitstream-charter]{mathdesign}
+
+\usepackage{authblk}
+
+\usepackage{xcolor}
+\colorlet{mdtRed}{red!50!black}
+\colorlet{dblue}{blue!50!black}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{linkcolor=dblue,citecolor=dblue,filecolor=dullmagenta,urlcolor=mdtRed}
+
+\usepackage[all]{xy}
+\usepackage{tikz,tikz-cd,tkz-graph,enumerate}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+%%%%%%%%%%%%%%% Some shortcuts %%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\Hom}{\textnormal{Hom}}
+\DeclareMathOperator{\sHom}{\mathcal{H}\!\textit{om}}
+\DeclareMathOperator{\sEnd}{\mathcal{E}\!\textit{nd}}
+\DeclareMathOperator{\rk}{\mathrm{rk}}
+\DeclareMathOperator{\Id}{\textnormal{Id}}
+\DeclareMathOperator{\At}{\textnormal{At}}
+\DeclareMathOperator{\ad}{\textnormal{ad}}
+\DeclareMathOperator{\Aut}{\textnormal{Aut}}
+\DeclareMathOperator{\Lie}{\textnormal{Lie}}
+\DeclareMathOperator{\GL}{\textnormal{GL}}
+\DeclareMathOperator{\Der}{\mathcal{D}\!{\it er}}
+
+%%%%% New commands: 
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\dv}{\vee\vee}
+
+\makeatletter
+\newcommand{\subjclass}[2][2010]{%
+	\let\@oldtitle\@title%
+	\gdef\@title{\@oldtitle\footnotetext{#1 \emph{Mathematics subject classification.} #2}}%
+}
+\newcommand{\keywords}[1]{%
+	\let\@@oldtitle\@title%
+	\gdef\@title{\@@oldtitle\footnotetext{\emph{Key words and phrases.} #1.}}%
+}
+\makeatother
+
+\numberwithin{equation}{subsection}
+
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem*{theorem-nonumber}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{example}[equation]{Example}
+
+\newtheorem*{thm-intro}{Theorem}%[section]
+\newtheorem*{cor-intro}{Corollary}
+\newtheorem*{prop-intro}{Proposition}
+\newtheorem*{lem-intro}{Lemma}
+\newtheorem*{rem-intro}{Remark}
+
+\title{Introduction to \LaTeX} % Title to appear in the font page. 
+\newcommand\shorttitle{Write Short Title Here} % Short title to appear in odd numbered (>1) pages. 
+
+\author[1]{First Author}
+\author[2]{Second Author\footnote{Corresponding author}} 
+
+\affil[1]{\small{
+	Department of Mathematics\\ 
+	Indian Institute of Technology\\
+	Powai, Mumbai 400076, India\\
+	{Email:} \texttt{author1@math.iitb.ac.in}.}
+} 
+
+\affil[2]{\small{
+	Department of Mathematics\\ 
+	Indian Institute of Technology\\
+	Powai, Mumbai 400076, India\\
+	{Email:} \texttt{author2@math.iitb.ac.in}.} 
+}
+
+\keywords{Group; ring; field; manifold}
+
+\subjclass{14J60, 53C07, 32L10}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Here we write brief description/abstract of our article. 
+\end{abstract}
+
+\section{Introduction}\label{intro}
+
+
+\end{document}

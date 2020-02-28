@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instructions to install softwares required for LaTeX %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Instruction for Ubuntu users: 
+=============================
+1. Open terminal (Alt+Ctrl+T). 
+2. Type the following commands: 
+	sudo apt update 
+	sudo apt install texlive-full 
+	sudo apt install texstudio 
+
+This method is applicable to any ubuntu based operating system (e.g., Linux Mint).
+Thats it! Now you can open "TeXStudio" and start writing documents using LaTeX! 
+
+
+Instructions for Windows users: 
+===============================
+"MikTeX" and "TeXLive" are two most popular LaTeX distributions for Windows useres! 
+
+Process for installing MikTeX in Windows:
+----------------------------------------- 
+1. Go to "https://miktex.org/download" and click on "Download" button to download the Miktex installer. 
+
+2. Double click on the downloaded file "basic-miktex-2.9.7351-x64.exe" to run the Miktex setup wizerd. 
+
+3. Follow the screen instructions to complete the installation. 
+
+4. Download a LaTeX editor, for example "TeXstudio" from "https://www.texstudio.org/", and install it 
+by clicking on the installer file "texstudio-2.12.22-win-qt5.exe" and following the screen instructions. 
+
+5. If you don't have any pdf file reader installed in your computer, download "Sumatra PDF" viewer 
+from "https://www.sumatrapdfreader.org/download-free-pdf-viewer.html". This is much lighter and faster 
+than Adobe reader! 
+
+Now you are ready to write basic LaTeX documents! 
+The above mentioned "basic-miktex" installer installer do not install many packages, which we need often 
+to write LaTeX documents. Therefore, we need to install full-miktex packages. 
+
+How to install full-MikTeX? 
+--------------------------- 
+After done with the basic installations as instructed above, we need to download MikTeX-full packages! 
+This step will take a log time and requires good internet connection. This will download approximately 4GB files. 
+So make sure you are connected with a high speed wifi/LAN internet connection! 
+
+1. Open start menu and look for "MikTeX Console". Right click on it, and open it as "Administrator". 
+
+2. Click on the option "Packages" on the left. 
+
+3. Click on the last column: "Installed on". This will rearrange the list according to "installed" packages. 
+
+4. Scroll down the list to select the packages not yet installed. 
+(Tips: Select the first package that is not installed yet >> scroll down to the bottom of the list >> 
+Hold "Shift" key and select the last package. This will select all packages which are not yet installed.) 
+
+5. Press the "+" sign (just above the file list) to start installing all the selected packages. 
+This can take about two to three hours of time! 
+
+
+If you do not prefer to use MikTex, here is an alternative software called "TeXLive".
+
+Instruction to install TeXLive in Windows:
+------------------------------------------
+1. Go to "https://www.tug.org/texlive/acquire-iso.html". 
+2. Select "download from a nearby CTAN mirror". 
+3. Download "texlive2019.iso". 
+4. Open the "texlive2019.iso" and run the file "install-tl-windows.bat". 
+5. Follow the screen instructions to install texlive full version. 
+
+Enjoy! 
