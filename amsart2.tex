@@ -1,0 +1,442 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,leqno]{amsart}
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{15.5cm}
+\setlength{\topmargin}{-0.8cm}
+\setlength{\parskip}{0.3\baselineskip}
+\hoffset=-1.4cm
+
+\usepackage{palatino} % For palatino style, may be used/removed. 
+\usepackage{amsmath,amssymb,amsxtra,color,calligra,mathrsfs,comment,url}
+%\let\circledS\undefined % here - PS
+%\usepackage[bitstream-charter]{mathdesign}
+
+\usepackage[tableposition=above]{caption}
+
+\usepackage{xcolor} % Required for specifying custom colours
+\colorlet{mdtRed}{red!50!black}
+\colorlet{dblue}{blue!50!black}
+\usepackage[colorlinks,pagebackref=true]{hyperref}
+\hypersetup{linkcolor=dblue,citecolor=dblue,filecolor=dullmagenta,urlcolor=mdtRed}
+
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{[{%
+		\ifcase #1 Not cited.%
+		\or $\uparrow$~#2.%
+		\else $\uparrow$~#2.%
+		\fi%
+	}]}
+
+\usepackage[all]{xy}
+\usepackage{tikz,tikz-cd,tkz-graph,enumerate}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+%%%%%%%%%%%%%%% Some shortcuts %%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\Hom}{\textnormal{Hom}}
+\DeclareMathOperator{\sHom}{\mathcal{H}\!\textit{om}}
+\DeclareMathOperator{\sEnd}{\mathcal{E}\!\textit{nd}}
+
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\dv}{\vee\vee}
+
+\newcommand{\xrrarrow}[3][2]{\overset{#2}{\underset{#3}{\rightrightarrows}}}
+\newcommand{\xllarrow}[3][2]{\overset{#2}{\underset{#3}{\leftleftarrows}}}
+
+\numberwithin{equation}{subsection}
+
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem*{theorem-nonumber}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{example}[equation]{Example}
+
+\newtheorem*{theorem-nonum}{Theorem}%[section]
+\newtheorem*{corollary-nonum}{Corollary}
+
+%%%%%% Making Title in normal font 
+\newenvironment{nouppercase}{%
+\let\uppercase\relax%
+\renewcommand{\uppercasenonmath}[1]{}}{}
+%
+\makeatletter
+\def\@settitle{
+	\begin{center}%
+		\baselineskip14\p@\relax
+		%\bfseries
+		\normalfont\Large
+		\@title
+	\end{center}%
+}
+\makeatother
+
+
+\begin{document}
+
+\baselineskip=15.5pt
+
+\title[Basics of \LaTeX]{\Huge An introduction to LaTeX} 
+
+\author[F. Author]{\large First Author} 
+\address{
+	\begin{tabular}{l}
+		{First Author} \\
+		\hspace{.1in} Department of Mathematics,\\
+		\hspace{.1in} Indian Institute of Technology Bombay, \\
+		\hspace{.1in} Powai, Mumbai 400076, Maharashtra, India. \\
+		\hspace{.1in} Email: \href{mailto:author1@iitb.ac.in}{\rm \texttt{author1@iitb.ac.in}} 
+	\end{tabular}
+}
+\author[S. Author]{Second Author} 
+\address{
+	\begin{tabular}{l}
+		{Second Author} \\
+		\hspace{.1in} Department of Mathematics,\\
+		\hspace{.1in} Indian Institute of Technology Bombay, \\
+		\hspace{.1in} Powai, Mumbai 400076, Maharashtra, India. \\
+		\hspace{.1in} Email: \href{mailto:author2@iitb.ac.in}{\rm \texttt{author2@iitb.ac.in}} 
+	\end{tabular}
+}
+\author[T. Author]{Third Author} 
+\address{
+	\begin{tabular}{l}
+		{Third Author} \\
+		\hspace{.1in} Department of Mathematics,\\
+		\hspace{.1in} Indian Institute of Technology Bombay, \\
+		\hspace{.1in} Powai, Mumbai 400076, Maharashtra, India. \\
+		\hspace{.1in} Email: \href{mailto:author3@iitb.ac.in}{\rm \texttt{author3@iitb.ac.in}} 
+	\end{tabular}
+}
+
+
+\subjclass[2010]{14J60, 53C07, 32L10}
+
+\keywords{\LaTeX} 
+
+\date{\today}
+
+\thanks{Corresponding author: Name Surname}
+
+%\maketitle
+
+\begin{nouppercase}
+	\maketitle
+\end{nouppercase}
+
+\tableofcontents
+
+\begin{abstract}
+In this article, we learn some basics of writing documents using \LaTeX. 
+\end{abstract}
+
+
+\section{Advice} 
+To become comfortable in writing documents using \LaTeX\, you must practice it as much as you can. 
+Whenever you face some problem in writing particular type setting / style / diagram / table etc., 
+use Google search to find out what you are looking for. There are many well written webpages, 
+where you can find solutions for most of the problems you will be facing at the beginning. 
+This is a continuous process, and may takes years of time to become comfortable with using \LaTeX. 
+So don't give up at the beginning, and keep practising. 
+
+
+\section{Basics of a \LaTeX\ document}
+\subsection{Different types of fonts}
+Example of various font styles: 
+{\it italics}, {\bf bold}, {\tt type writer font} etc. \\ 
+In math mode, you can use: $R, \mathbf{R}, \mathbb{R}, \mathcal{R}, \mathscr{R}, \mathfrak{R}$ etc. \\ 
+Tiny font: {\tiny a b c d..} \\ 
+Small font: {\small a b c d..} \\ 
+Large font: {\large a, b, c, d..} \\ 
+Extra large font: {\Large a, b, c, d...} \\ 
+Huge font: {\huge a, b, c, d...} \\ 
+Extra huge font: {\Huge a, b, c, d...} \\ 
+For more details, see \href{https://en.wikibooks.org/wiki/LaTeX/Fonts}{https://en.wikibooks.org/wiki/LaTeX/Fonts}. \\ 
+Accents: \'a, \`a, \"a etc. \\ 
+Subscript and superscript: $a^2, x_1, x_2$ etc. \\ 
+Colouring text: {\color{red} red}, {\color{mdtRed} dark-red}, {\color{blue} blue}, {\color{dblue} dark-blue} etc. \\ 
+
+
+\subsection{Equations}
+Example of an equation: 
+\begin{equation}
+(x+y+z)^2 = x^2+y^2+z^2+2xy+2yz+2zx\,. 
+\end{equation}
+
+\noindent
+When you want to write an equation, which is not fitting into a line, you should use: 
+\begin{align}
+(x_1 + x_2 + x_3 + x_4 + x_5 + x_6 + x_7)^2 
+& = x_1^2 + x_2^2 + x_3^2 + x_4^2 + x_5^2 + x_6^2 \nonumber \\ 
+& + 2(x_1x_2 + x_2x_3 + x_3x_4 + x_4x_5 + x_5x_6) \nonumber \\ 
+& + 2(x_1x_3 + x_2x_4 + x_3x_5 + x_4x_6)  \\ 
+& + 2(x_1x_4 + x_2x_5 + x_3x_6) + 2(x_1x_5 + x_2x_6) + 2x_1x_6 \nonumber 
+\end{align}
+
+\noindent
+Example of equation array: 
+
+\begin{eqnarray}
+A + B + C & = & C + B + A \nonumber \\ 
+& = & B + A + C  \\ 
+& = & A + C + B \nonumber
+\end{eqnarray}
+
+\noindent
+Example of a matrix: 
+\begin{equation}
+A = \begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\ 
+a_{21} & a_{22} & a_{23} \\ 
+a_{31} & a_{32} & a_{33} 
+\end{pmatrix} 
+\end{equation}
+
+\noindent
+Example of two matrices side by side: 
+\begin{equation}
+A = \begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\ 
+a_{21} & a_{22} & a_{23} \\ 
+a_{31} & a_{32} & a_{33} 
+\end{pmatrix} 
+\ \ \ \text{and}\ \ \ 
+B = \begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\ 
+a_{21} & a_{22} & a_{23} \\ 
+a_{31} & a_{32} & a_{33} 
+\end{bmatrix}
+\end{equation}
+
+\noindent
+Example of a multiline equation: 
+\begin{equation}
+f(x) = \left\{\begin{array}{rcl}
+x^2 & \mbox{if} & 0 \leq x < \infty, \\ 
+x^3 & \mbox{if} & x \leq 0. 
+\end{array}\right. 
+\end{equation}
+
+
+\subsection{Theorems, Proposition, Lemma, Corollary etc.}
+
+\begin{proposition}\label{prop-1}
+	Let $A$ be a commutative ring with identity. Let $\mathfrak a$ be an ideal of $A$. 
+	\begin{enumerate}[(a)]
+		\item $\mathfrak a$ is a prime ideal of $A$ if and only if $A/\mathfrak a$ is an integral domain. 
+		\item $\mathfrak a$ is a maximal ideal of $A$ if and only if $A/\mathfrak a$ is a field. 
+	\end{enumerate}
+\end{proposition}
+
+
+\begin{theorem}
+	Let $A$ be a commutative ring with identity. Let $\mathfrak a$ be an ideal of $A$. 
+	\begin{enumerate}[(i)]
+		\item $\mathfrak a$ is a prime ideal of $A$ if and only if $A/\mathfrak a$ is an integral domain. 
+		\item $\mathfrak a$ is a maximal ideal of $A$ if and only if $A/\mathfrak a$ is a field. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}[(i)]
+		\item Write a proof here. 
+		
+		\item Write a proof here. 
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma}
+	Let $A$ be a commutative ring with identity. Let $\mathfrak a$ be an ideal of $A$. 
+	\begin{enumerate}[(I)]
+		\item $\mathfrak a$ is a prime ideal of $A$ if and only if $A/\mathfrak a$ is an integral domain. 
+		\item $\mathfrak a$ is a maximal ideal of $A$ if and only if $A/\mathfrak a$ is a field. 
+	\end{enumerate}
+\end{lemma}
+
+Now we write a proof of Proposition \ref{prop-1} here. 
+\begin{proof}[Proof of Proposition \ref{prop-1}]
+	Write a proof of Proposition \ref{prop-1} here. 
+\end{proof}
+
+\begin{corollary}
+	content...
+\end{corollary}
+
+\begin{remark}
+	content...
+\end{remark}
+
+
+\subsection{Writing diagrams}
+Here is an example of various diagrams. 
+
+\begin{enumerate}[(i)]
+	\item A simple diagram using \texttt{tikzcd}:  
+	\begin{equation}
+	\begin{tikzcd}
+	A \ar{r}{f} \ar{d}{g} & B \ar{d}{h} \\ 
+	C \ar{r}{i} & D
+	\end{tikzcd}
+	\end{equation}
+	
+	\item Drawing diagram with curved arrows usign \texttt{tikzcd}: 
+	\begin{equation}
+	\begin{gathered}
+	\begin{tikzcd}
+	Z \arrow[bend right=15]{rdd}[below=8]{a} \arrow[bend left=15]{rrrd}{b} \ar[dashed]{rd}{c} \\
+	& X \times_k Y \ar{rr}[below]{f_Y} \ar{d}{g_X} && Y \ar{d}[left]{g} \\
+	& X \ar{rr}[below]{f} && k
+	\end{tikzcd}
+	\end{gathered}
+	\end{equation}
+	
+	\item Drawing diagram with curved arrows usign \texttt{xymatrix}: 
+	\begin{equation}
+	\begin{gathered}
+	\xymatrix{
+		Z \ar@/_1pc/[ddr]_f \ar@{-->}[dr]^\phi \ar@/^1pc/[drrr]^g & & & \\ 
+		& X \times_k Y \ar[rr]^{p_2} \ar[d]^{p_1} & & Y \ar[d]^\xi \\ 
+		& X \ar[rr]^\eta & & k
+	}
+	\end{gathered}
+	\end{equation}
+	
+	
+	\item Diagram using \texttt{xymatrix} package. 
+	\begin{equation}
+	\begin{gathered}
+	\xymatrix{
+		0 \ar[r] & A_1 \ar@{^(->}[r]^{f_1} \ar@{=}[d]_{v_1} & A_1\oplus A_2 \ar@{->>}[r]^{f_2}\ar[d]_{v_2}^{\simeq} 
+		& A_2 \ar[r] \ar[d]_{v_3}^{v_3'} & 0 \\ 
+		0 \ar@{-->}[r] & B_1 \ar@{..>}[r]^{g_1} & B_2 \ar@{~>}[r]^{g_2} & B_3 \ar[r] & 0 
+	}
+	\end{gathered}
+	\end{equation}
+	
+	\item Drawing Graph using \texttt{tikzpicture}: 
+	\begin{center}
+		\begin{tikzpicture}
+		[scale=0.8,auto=left,every node/.style={circle,fill=blue!100}]
+		\node (n6) at (1,10) {6};
+		\node (n4) at (4,8)  {4};
+		\node (n5) at (8,9)  {5};
+		\node (n1) at (11,8) {1};
+		\node (n2) at (9,6)  {2};
+		\node (n3) at (5,5)  {3};
+		
+		\foreach \from/\to in {n6/n4,n4/n5,n5/n1,n1/n2,n2/n5,n2/n3,n3/n4}
+		\draw (\from) -- (\to); 
+		\end{tikzpicture}
+	\end{center}
+	
+\end{enumerate}
+
+
+
+\subsection{Creating tables}
+Here we show some simple examples of writing table in \LaTeX\. For more complicated tables, according to your requirements, 
+you can see the following page: \\
+\noindent 
+\href{https://www.overleaf.com/learn/latex/Tables}{https://www.overleaf.com/learn/latex/Tables}. 
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline % draw a horizontal line. 
+		1 & A & B & C \\ 
+		\hline
+		2 & D & E & F \\ 
+		\hline
+		3 & G & H & I \\ 
+		\hline
+	\end{tabular}
+	\caption{Simple Table}
+	\label{table:0}
+\end{table}
+
+\noindent
+Here is an example of two tables placed side by side. 
+\begin{center}
+	\begin{table}[h!] % To place the table at this precise location, use the parameter h!. 
+		\parbox{.45\linewidth}{
+			\centering 
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\multicolumn{4}{|c|}{Sample space 1} \\ 
+				\hline
+				1 & A & B & C \\ 
+				\hline
+				2 & D & E & F \\ 
+				\hline
+				3 & G & H & I \\ 
+				\hline
+			\end{tabular}
+		\caption{1st List of items}
+		\label{table:1} 
+		}
+		\hfill
+		\parbox{.45\linewidth}{
+			\centering 
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\multicolumn{4}{|c|}{Sample space 2} \\ 
+				\hline
+				1 & A & B & C \\ 
+				\hline
+				2 & D & E & F \\ 
+				\hline
+				3 & G & H & I \\ 
+				\hline
+			\end{tabular}
+			\caption{2nd List of items}
+			\label{table:2}
+		}
+	\end{table}
+\end{center}
+
+
+%\newpage 
+\section{Acknowledgements}
+\small{The authors would like to thank ``Name Surname'' for useful discussions. 
+The first named author is supported by ``name of funding agency''. } 
+
+
+
+\begin{thebibliography}{AA}
+	\providecommand{\doi}[2][]{doi: \href{https://doi.org/#2}{#2}}
+	\providecommand{\arxiv}[2][]{arXiv:\href{https://arxiv.org/abs/#2}{#2}} 
+	
+	\bibitem{Atiyah-1957}
+	M. F. Atiyah, Complex analytic connections in fibre bundles, 
+	\textit{Trans. Amer. Math. Soc.}, \textbf{85} (1957), 181--207. 
+	\doi{10.2307/1992969}. 
+	
+	\bibitem{Deligne-1970}
+	Pierre Deligne, \textit{\'Equations diff\'erentielles \`a points singuliers r\'eguliers}, 
+	Lecture Notes in Mathematics, Vol. 163, Springer-Verlag, Berlin-New York (1970). 
+	\doi{10.1007/BFb0061194}. 
+	
+	\bibitem{Hartshorne-1977}
+	Robin Hartshorne, \textit{Algebraic geometry}, Graduate Texts in Mathematics, No. 52. 
+	\textit{Springer-Verlag, New York-Heidelberg}, 1977.  
+	\doi{10.1007/978-1-4757-3849-0}. 
+	
+	\bibitem{Voisin-I}
+	Claire Voisin, \textit{Hodge theory and complex algebraic geometry. I}, 
+	\textit{Cambridge Studies in Advanced Mathematics}, volume~76, 
+	Cambridge University Press, Cambridge, english edition (2007). 
+	\doi{10.1017/CBO9780511615344}. 
+	
+	\bibitem{Weil-1938}
+	Andr\'e Weil, Généralisation des fonctions abéliennes, 
+	\textit{J. Math. Pures Appl.}, \textbf{17} (1938), 47--87. 
+	
+\end{thebibliography}
+
+\end{document}
