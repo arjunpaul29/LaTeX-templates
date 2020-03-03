@@ -66,7 +66,7 @@
 	\let\uppercase\relax%
 	\renewcommand{\uppercasenonmath}[1]{}}{}
 
-\newcommand{\titlefont}{\fontsize{20}{18}\selectfont}
+\newcommand{\titlefont}{\fontsize{28}{22}\selectfont} % To customize font size for title. 
 \makeatletter
 \def\@settitle{
 	\begin{center}%
@@ -89,19 +89,17 @@
 \renewcommand{\email}[2][1]{\thanks{\textit{Email address}#1: \href{mailto:#2}{#2}}}
 \renewcommand{\address}[2][1]{\thanks{\textit{Address}#1: #2}} 
 %\newcommand{\corauth}[2][1]{\thanks{#2Corresponding author: #1}} 
-\newcommand{\corauth}[2][1]{\thanks{#2Corresponding author}} 
+\newcommand{\corauth}[2][]{\thanks{#2Corresponding author}} 
 
 \begin{document}
 
 \baselineskip=15.5pt
 
-\title[Basics of \LaTeX]{\Huge An introduction to \LaTeX} 
+\title[Basics of \LaTeX]{An introduction to \LaTeX} 
 
 \author[F. Author]{\large First Author\thanksnum{1}\thankssymb{1}}
-
 \address[\thanksnum{1}]{Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India}
-
-\thanks{\email[\thanksnum{1}]{author1@iitb.ac.in}} 
+\email[\thanksnum{1}]{author1@iitb.ac.in}
 
 \author[S. Author]{Second Author\thanksnum{2}} 
 \address[\thanksnum{2}]{Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India}
