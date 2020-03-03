@@ -78,12 +78,18 @@
 }
 \makeatother
 
-%%%%%%%% Number/Symbol for thanks command: 
+%%%%%%%% Symbols/letters/numbers for \thanks{} command: 
 \makeatletter
 \newcommand\thankssymb[1]{\textsuperscript{\@fnsymbol{#1}}}
 \newcommand\thanksletter[1]{\lowercase{\textsuperscript{\@alph{#1}}}}
 \newcommand\thanksnum[1]{\textsuperscript{#1}}
 \makeatother
+
+%%%%%%%% Address, Eamil, Corresponding author: 
+\renewcommand{\email}[2][1]{\thanks{\textit{Email address}#1: \href{mailto:#2}{#2}}}
+\renewcommand{\address}[2][1]{\thanks{\textit{Address}#1: #2}} 
+%\newcommand{\corauth}[2][1]{\thanks{#2Corresponding author: #1}} 
+\newcommand{\corauth}[2][1]{\thanks{#2Corresponding author}} 
 
 \begin{document}
 
@@ -92,20 +98,22 @@
 \title[Basics of \LaTeX]{\Huge An introduction to \LaTeX} 
 
 \author[F. Author]{\large First Author\thanksnum{1}\thankssymb{1}}
-\thanks{\thanksnum{1} Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India.}
-\thanks{\thanksnum{1} \textit{Email address:} \texttt{author1@iitb.ac.in}} 
+
+\address[\thanksnum{1}]{Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India}
+
+\thanks{\email[\thanksnum{1}]{author1@iitb.ac.in}} 
 
 \author[S. Author]{Second Author\thanksnum{2}} 
-\thanks{\thanksnum{2} Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India.}
-\thanks{\thanksnum{2} \textit{Email address:} \texttt{author2@iitb.ac.in}} 
+\address[\thanksnum{2}]{Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India}
+\email[\thanksnum{2}]{author2@iitb.ac.in}
 
 \author[T. Author]{Third Author\thanksnum{3}} 
-\thanks{\thanksnum{3} Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India.}
-\thanks{\thanksnum{3} \textit{Email address:} \texttt{author3@iitb.ac.in}} 
+\address[\thanksnum{3}]{Department of Mathematics, Indian Institute of Technology Bombay, Powai, Mumbai 400076, India}
+\email[\thanksnum{3}]{author3@iitb.ac.in}
 
-\thanks{\thankssymb{1} Corresponding author}
+\corauth[]{\thankssymb{1}} 
 
-\subjclass[2010]{14J60, 53C07, 32L10}
+\subjclass[2010]{14J60, 53C07, 32L10} 
 
 \keywords{\LaTeX} 
 
