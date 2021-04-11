@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sample multilanguage \XeLaTeX file for Bengali, Hindi and English %
+% Arjun Paul (Email: arjun[dot]math[dot]tifr[at]gmail[dot]com)      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,reqno]{article}
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{16cm}
+\setlength{\topmargin}{-0.8cm}
+\setlength{\parskip}{0.3\baselineskip}
+\hoffset=-1.4cm
+\usepackage{tikz,tikz-cd,tkz-graph}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=red,
+}
+\urlstyle{same}
+%\usepackage{amsart} %% amsart will not work here.
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools,amsxtra,calligra,enumerate,color,mathrsfs} %% Additional Packages for Math %%
+\usepackage{metalogo} % This is used to display \XeLaTeX logo only.
+\usepackage{fontspec}
+\usepackage{polyglossia}
+%\usepackage{devanagari} %% Not required
+%\setmainfont{FreeSerif} %% Not required
+\setdefaultlanguage{english}
+\setotherlanguage{bengali}
+\newfontfamily\bengalifont[Script=Devanagari]{Lohit Bengali}
+\setotherlanguage{sanskrit}
+\newfontfamily\devanagarifont[Script=Devanagari]{Lohit Devanagari}
+
+\newcommand{\xra}[2][d]{\overset{#2}{\longrightarrow}}
+\newcommand\op {\operatorname}
+
+\newcommand\bngn {\textbengali} % Bengali font with normal/default size, used in title, author-name etc..
+\newcommand\bng {\fontsize{11}{12}\textbengali} % Bengali font with fixed size 11 pt, used in the body text.
+\newcommand\eng {\textenglish}
+\newcommand\hnd {\textsanskrit}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{bngthm}[theorem]{\bng{উপপাদ্য}}
+\newtheorem{bnglem}[theorem]{\bng{স্বত:সিদ্ধ}}
+\newtheorem{bngprop}[theorem]{\bng{প্রস্তাবনা}}
+\newtheorem{bngcor}[theorem]{\bng{অনুসিদ্ধান্ত}}
+\newtheorem*{bngproof}{\bng{প্রমাণ}}
+
+%\theoremstyle{remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\title{\XeLaTeX \, in English, \bngn{বাংলা} \& \hnd{हिन्दी}}
+\author{\href{www.math.tifr.res.in/~apmath90/index.html}{\bngn{অর্জুন পাল}}}
+\date{May 01, 2017}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\section{How to write a multilanguage (\bngn{বাংলা}, English \& \hnd{हिन्दी}) \XeLaTeX \, file?}
+\textbf{For Linux users:}
+To write multilanguage \LaTeX \, document you first need to do few things listed below.
+\begin{itemize}
+ \item Install `texlive-full' metapackage [1 GB approx.] (or, `texlive', `texlive-lang-indic'), `kile', `evince', `okular', `fonts-lohit-deva' and `fonts-lohit-beng-bengali' from the Ubuntu software center or using the following terminal commands. \\
+ \texttt{sudo apt-get update \\ sudo apt-get install texlive texlive-lang-indic kile okular \\ sudo apt-get install fonts-lohit-deva fonts-lohit-beng-bengali}
+
+ \item Write a tex file, say `\href{http://www.math.tifr.res.in/~apmath90/Bengali/sample.tex}{sample.tex}', similar to \href{http://www.math.tifr.res.in/~apmath90/Bengali/sample.tex.pdf}{this tex file}, and save it.
+ \item Compile the file using `\texttt{xelatex}' command, e.g. \texttt{xelatex sample.tex} from the terminal or any other \XeLaTeX\, editor. The default compiling command `pdflatex sample.tex' will \underline{not} work in this case.
+\end{itemize}
+\noindent
+\textbf{For Windows users:} You can install either \href{https://drive.google.com/file/d/0B5z0PYQChDCvZkNidGw1V1l3cVU/view?usp=sharing}{`MikTeX-full' [2.1 GB]} using \href{http://www.miktex.org/download}{MiKTeX Net Installer, 32/64-bit} or \href{http://ctan.imsc.res.in/systems/texlive/Images/texlive2016-20160523.iso}{`texlive-full' [2.9 GB]} as a \XeLaTeX \, compiler, and then the \href{http://www.fontsc.com/font/lohit-bengali}{bengali fonts} and \href{http://www.fontsc.com/font/lohit-devanagari}{devanagari} fonts you want to use. After that you need to install a \LaTeX \, or \XeLaTeX \, editor, e.g., \href{http://www.xm1math.net/texmaker/}{`TeXmaker'} or \href{http://www.texniccenter.org/}{`TeXnicCenter'}, a pdf viewer, e.g. \href{https://www.sumatrapdfreader.org/free-pdf-reader.html}{`sumatra pdf viewer'} or \href{http://stdutility.com/stduviewer.html}{`stduview'} or `adobe reader'. Write a tex file similar to this `sample.tex', and compile it using `xelatex', not by `pdflatex'!
+\section{\bngn{কিছু উদাহরণ} (Some examples)}
+%\section{\bng{বাংলা} \& \hnd{हिन्दी}}
+\subsection{\bngn{বাংলা গল্প: পাগলা দাশু}}
+\bng{আমাদের স্কুলের যত ছাত্র তাহার মধ্যে এমন কেহই ছিল না, যে পাগলা দাশুকে না চিনে। যে লোক আর কাহাকেও জানে না, সেও সকলের আগে পাগলা দাশুকে চিনিয়া লয়। সেবার একজন নূতন দারোয়ান আসিল, একেবারে আনকোরা পাড়াগেঁয়ে লোক, কিন্তু প্রথম যখন সে পাগলা দাশুর নাম শুনিল, তখনই সে আন্দাজে ঠিক ধরিয়া লইল যে, এই ব্যক্তিই পাগলা দাশু। কারণ তার মুখের চেহারায়, কথাবার্তায়, চলনে চালনে বোঝা যাইত যে তাহার মাথায় একটু 'ছিট' আছে। তাহার চোখদুটি গোল-গোল, কানদুটা অনাবশ্যক রকমের বড়, মাথায় এক বস্তা ঝাঁকড়া চুল। চেহারাটা দেখিলেই মনে হয় -- কি মনে হয় বলুনতো দেখি?}
+
+\subsection{\hnd{हिन्दी}}
+\hnd{देखें, हम हिन्दी अक्षर भी लिख सकते हैं।}
+\subsection{\bngn{উপপাদ্য}} \bng{পিথাগোরাস (\eng{Pythagoras})-এর উপপাদ্যটি হল,}
+\begin{bngthm}[\textbengali{পিথাগোরাস}]
+  \textbengali{সমকোণী ত্রিভুজের অতিভুজের উপর অঙ্কিত  বর্গক্ষেত্রের ক্ষেত্রফল অপর দুই বাহুর উপর অঙ্কিত বর্গক্ষেত্রের ক্ষেত্রফলের সমষ্টির সমান।}
+\end{bngthm}
+
+\begin{bngproof}
+ \bng{এখানে বাংলায় প্রমাণ লিখতে হবে।}
+\end{bngproof}
+
+\begin{bngcor}
+ \textbengali{কোন সমকোণী ত্রিভুজের অতিভুজ $c$ এবং অপর দুই বাহু $a$ এবং $b$ হলে,}
+  \[
+    c^2=a^2+b^2.
+  \]
+\end{bngcor}
+
+
+\noindent
+Note that the default language is set to english.
+
+\subsection{Short exact sequence}
+Let us write a short exact sequence (mathematical expression) to see if this works or not.
+\begin{equation}\label{extseq}
+ 1 \longrightarrow \mathscr{M}_g^1 \xra[]{\eta^*} \mathcal{N}_g^{s} \xra[]{i_C^*} \mathscr{O}_{G,C}^{rs} \longrightarrow 1.
+\end{equation}
+
+\noindent
+\bng{উপরের } short exact sequence (\ref{extseq})\bng{-টি  থেকে অামরা নিন্মলিখিত সিদ্ধান্তে পৌঁছাতে পারি। ....}
+
+\subsection{Commutative diagram}
+`tikzcd' package \bng{ব্যবহার করে একটি} Commutative diagram \bng{অাঁকা হল:-}
+
+\begin{center}
+ \begin{tikzcd}
+  A_1 \ar{r}{f_1}\ar{d}{g_1} & B_1 \ar{r}{f_2}\ar{d}{g_2} & C_1 \ar{d}{g_3} \\
+  A_2 \ar{r}{h_1}            & B_2 \ar{r}{h_2}         & C_2
+ \end{tikzcd}
+\end{center}
+
+\section{\bngn{মন্তব্য} (Remark)}
+\small\bng{বাংলা ইংরেজি ও  হিন্দির সংমিশ্রণে } \XeLaTeX \, compile \bng{ঠিকই হচ্ছে, কিন্তু যে কোন} Mathematical commands, \bng{যেমন } `\$\,\,\, \$', `\textbackslash[ \,\,\, \textbackslash]' \bng{অথবা} `\$\$ \,\,\, \$\$' --- \bng{এগুলির মাঝে বাংলা বা হিন্দি \eng{font}-এ লেখা যাবে না, ওটা এই ক্ষেত্রে ঠিক মত কাজ করবে না। যেমন: ওই} commutative diagram \bng{ বা } short exact sequence\bng{-এর মধ্যে শুধু মাত্র} english font \bng{কাজ করবে।}
+\end{document}
