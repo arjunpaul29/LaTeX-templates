@@ -1,0 +1,261 @@
+\documentclass[11pt,english,
+%singlespacing,
+onehalfspacing,
+headsepline]{thesis}
+
+\setlength{\parskip}{0.5\baselineskip}
+%\renewcommand{\baselinestretch}{1.5}
+%\hoffset=-1.4cm
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+%\usepackage{lipsum}
+\usepackage{blindtext}
+\usepackage{palatino}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,amsxtra,amscd,color,calligra,mathrsfs}
+\usepackage{geometry,graphicx}
+\usepackage{a4wide}
+\usepackage{enumerate}
+%\usepackage{dsfont} % i added for blackboard bold 1's
+
+\usepackage{afterpage} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\usepackage[colorlinks]{hyperref}
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=dullmagenta,urlcolor=blue}
+\usepackage[all]{xy}
+\usepackage{tikz,tikz-cd,tkz-graph,enumerate}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+
+%%%%%%%%%%%%%%% Customized shorthands %%%%%%%%%%%%%%%
+\newcommand{\op}{\operatorname}
+
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\dv}{\vee\vee}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\dual}{^\vee}
+
+\DeclareMathOperator{\Hom}{\mathcal{H}\!{\it om}}
+\DeclareMathOperator{\End}{\mathcal{E}\!{\it nd}}
+
+
+%%%%%%%%%%% Theorem/Proposition/Lemma/Definition etc. %%%%%%%%%%% 
+\numberwithin{equation}{subsection}
+
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+
+\newtheorem*{thm-nonum}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{example}[equation]{Example}
+
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.7cm, % Inner margin=2.5cm
+	outer=2.7cm, % Outer margin=2.5cm
+	bindingoffset=1.0cm, % Binding offset=1.0cm
+	top=1.5cm, % Top margin=2.5cm
+	bottom=2.7cm, % Bottom margin=2.5cm
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+% You need to Edit at the appropriate places below: 
+\thesistitle{Write Your Thesis Title Here!} % Edit here! 
+%\examiner{} 
+\degree{Doctor of Philosophy} % Edit here! 
+\author{Write Your Name} % Edit here! 
+\addresses{} 
+\subject{Mathematics} % Edit here!
+\keywords{Group; ring; field; differential equation} % Optional 
+\supervisor{Your Guide's Name} % Edit Here ...
+%\university{\href{https://www.iitb.ac.in}{Indian Institute of Technology Bombay}} 
+\university{\href{https://www.tifr.res.in}{Tata Institute of Fundamental Research, Mumbai}} 
+%\department{\href{http://www.math.iitb.ac.in}{Department of Mathematics}} 
+\department{\href{http://www.math.tifr.res.in}{School of Mathematics}} 
+\faculty{Mathematics Faculty} % Optional
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} 
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.03\textheight}
+%\includegraphics[width=50mm]{IITB-logo.jpg} % Insert Institute logo. 
+\includegraphics[width=50mm]{tifrlogo.png} % Insert Institute logo. 
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % This automatically includes thesis title here! 
+\HRule \\[1.5cm] % Horizontal line
+
+\large \textit{A thesis submitted to the} \\ 
+% School of Mathematics \\
+Tata Institute of Fundamental Research, Mumbai\\
+\textit{for the degree of \degreename \\ in Mathematics \\ by}\\ [1.0cm] 
+
+\Large \authorname \\ 
+\large \deptname \\ \large \univname \\ Mumbai 400 076, India. 
+
+\vfill
+
+{\large Month, Year}\\[1cm] % Write Date/Month/Year here. 
+%{\large \today}\\[1cm] % To use today's date automatically. 
+
+\end{center}
+
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	Decorations
+%----------------------------------------------------------------------------------------
+%\cleardoublepage 
+% \vspace*{75px}
+
+%\begin{center}
+%\includegraphics[width=170mm]{declaration.jpg}
+%\end{center}
+
+\begin{declaration}
+
+\noindent
+This thesis is a presentation of my original research work. Wherever contributions of others 
+are involved, every efforts are made to indicate this clearly, with due reference to the 
+literature, and acknowledgement of collaborative research and discussions.  \\ 
+
+\noindent 
+This work was done under the guidence of Professor [Guide's name], at the School of Mathematics 
+of the Tata Institute of Fundamental Research, Mumbai, India. I have collaborated with [Collaborator 1], 
+[Collaborator 2], and [Collaborator 3] while working towards this thesis. \\ \\ \\  
+
+
+\hfill{FirstName LastName \hspace*{60px}} 
+
+\hfill{\textbf{[Candidate's name and signature]}} \\ \\
+
+\noindent
+In my capacity as supervisor of the candidate's thesis, I certify that the above statements 
+are true to the best of my knowledge. \\ \\ \\ \\ \\
+
+
+%\hspace*{20px}  
+\noindent
+\hspace*{10px}\supname % This will insert Supervisor's name here automatically! 
+
+\noindent
+\textbf{[Guide's name and signature]} \\ 
+
+\noindent 
+Date: 
+
+\end{declaration}
+%----------------------------------------------------------------------------------------
+%	Abstract
+%----------------------------------------------------------------------------------------
+
+%\begin{abstract}
+%\addchaptertocentry{\abstractname} 
+%In this thesis, we study..... 
+%\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	Acknowledgements
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+%\addchaptertocentry{\acknowledgementname} 
+%{\small 
+Write acknowledgements here...!!! 
+%}
+
+\end{acknowledgements}
+
+% DEDICATION
+
+\dedicatory{To someone \ldots \\ 
+\hspace{2cm} you want to dedicate the thesis ... } 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Creating table of contents %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage % This is required to correctly locate the table of contents from the index of output pdf file. 
+\pdfbookmark{\contentsname}{Contents} % Creates index of table of contents in the output pdf file. 
+\tableofcontents % This generates the table of contents automatically! 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CHAPTER 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{0}
+\chapter*{\centering Introduction} % This will create a Chapter without any number! 
+% ``\centering" is used to place "Introduction" at the center of the line. 
+\addcontentsline{toc}{chapter}{Introduction} % This is to add this chapter in the table of contents. 
+Example of a Chapter without any number! 
+
+% End of Chapter "Introduction". 
+
+%%%%% Chapter 1: Preliminaries %%%%%%%
+\begin{chapter}{Preliminaries}\label{ch-1}
+This is a \LaTeX\ template for a Ph.D. thesis. You can modify it as you wish. 
+
+\section{First Section's Name}\label{sec-1.1}
+\subsection{Subsection Name}
+Sample \TeX. 
+
+\end{chapter} % End of Chapter 1. 
+
+
+% Beginning of Chapter 2. 
+\begin{chapter}{Name of chapter 2}\label{ch-2}
+In this chapter, we study .... 
+\section{Name of section 2.1}\label{sec-2.1}
+In this section, we study .... 
+
+\subsection{Name of subsection}\label{sec-2.1.1}
+Write something here...!!! 
+
+\section*{Section without number}\label{sec-2.2-nonum}
+This is an example of section without number! 
+
+\end{chapter}
+
+\cleardoublepage\pdfbookmark[-1]{\bibname}{bibliography}
+\phantomsection\addcontentsline{toc}{chapter}{\bibname}
+\begin{thebibliography}{AAAA}
+
+\bibitem[Ram96]{Ra2} A. Ramanathan, Moduli for principal bundles over algebraic curves. II, 
+\textit{Proc. Indian Acad. Sci. Math. Sci.} {\bf 106} (1996), 421--449. 
+
+\bibitem[Spr98]{Sp} T. A. Springer, \textit{Linear algebraic groups}, Second edition, 
+Progress in Mathematics, \textbf{9}, \textit{Birkhäuser Boston, Inc., Boston, MA}, (1998). 
+
+\bibitem[Sim92]{Si} C. T. Simpson, Higgs bundles and local systems, 
+\href{http://www.numdam.org/item?id=PMIHES_1992__75__5_0}{\textit{Inst. Hautes \'{E}tudes 
+Sci. Publ. Math.} \textbf{75} (1992), 5--95.} 
+
+\bibitem[Sor00]{So} C. Sorger, Lectures on moduli of principal $G$--bundles over algebraic curves, 
+\href{http://users.ictp.it/\~pub_off/lectures/lns001/Sorger/Sorger.pdf}{\textit{School on Algebraic 
+Geometry (Trieste, 1999)}, 1--57, ICTP Lect. Notes, 1, \textit{Abdus Salam Int. Cent. Theoret. Phys., 
+Trieste}, (2000)}. 
+
+\end{thebibliography}
+
+\end{document}
